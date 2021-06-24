@@ -1,10 +1,13 @@
-import { Foods } from "./foods.js";
-import { Scorable } from "./interfaces.js";
+import { Foods } from "./foods";
+import { Scorable } from "./interfaces";
 export class Score implements Scorable {
   private static instance: Score;
   get totalScore() {
     const foods = Foods.getInstance();
-    return foods.activeElementsScore.reduce((sum, element) => sum + element, 0);
+    return foods.activeElementsScore.reduce(
+      (sum: number, element: number) => sum + element,
+      0
+    );
   }
   render() {
     document.querySelector(".score__number")!.textContent! = String(
